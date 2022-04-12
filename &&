@@ -3,10 +3,10 @@ int main()
 {
 	int a = 10;
 	if (a < 18)
-		printf("未成年\n");
+		printf("灏戝勾\n");
 	else if (a >= 18 && a < 28)
-		printf("青年\n");
+		printf("澹勾\n");
 	else
-		printf("老不死\n");
+		printf("鑰佸勾\n");
 	return 0;
 }
