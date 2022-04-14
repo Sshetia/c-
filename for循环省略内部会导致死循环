@@ -1,0 +1,11 @@
+#define _CRT_SECURE_NO_WARNINGS	
+#include<stdio.h>
+int main()
+{
+	int i = 0;
+	for (;;)
+	{
+		printf("哈哈\n");
+	}
+	return 0;
+}
