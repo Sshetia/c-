@@ -1,0 +1,10 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include<stdio.h>
+#include<string.h>
+int main()
+{
+	char arr1[] = "hello world";
+	memset(arr1, '*', 6);
+	printf("%s\n", arr1);
+	return 0;
+}
