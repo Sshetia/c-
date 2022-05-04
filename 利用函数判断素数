@@ -1,0 +1,27 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include<stdio.h>
+int is_prime(int x)
+{
+	int j = 0;
+	for (j = 2; j < x; j++)
+	{
+		if (x % j == 0)
+		{
+			break;
+		}
+	}
+	if (x == j)
+	{
+		return 1;
+	}
+	return x;
+}
+int main()
+{
+	int i = 0;
+	for (i = 100; i <= 200; i++)
+	{
+		if (is_prime(i) == 1)
+			printf("%d\n", i);
+	}
+}
