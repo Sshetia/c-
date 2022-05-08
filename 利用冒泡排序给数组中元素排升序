@@ -4,6 +4,7 @@ void bubble_sort(int arr[],int sz)
 {
 	int i = 0;
 	int tmp = 0;
+	int falg = 1;
 	for (i = 0; i < sz - 1; i++)//确定冒泡排序的次数
 	{
 		int j = 0;
@@ -14,7 +15,12 @@ void bubble_sort(int arr[],int sz)
 				tmp = arr[j+1];
 				arr[j + 1] = arr[j];
 				arr[j] = tmp;
+				flag =0;
 			}
+		}
+		if(flag == 1)
+		{
+		break;
 		}
 	}
 }
