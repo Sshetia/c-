@@ -1,0 +1,4 @@
+#define ROW 3
+#define COL 3
+void initboard(char board[ROW][COL], char row, char col);
+void display(char board[ROW][COL], char row, char col);
