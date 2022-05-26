@@ -1,0 +1,16 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include<stdio.h>
+struct stu 
+{
+	char name[20];
+	int age;
+	char id[20];
+};
+int main()
+{
+	struct stu s1 = { "张三",20,"201905001633" };//用结构体struct stu这个类型创建了一个学生对象s1,并初始化
+	printf("%s\n", s1.name);
+	printf("%d\n", s1.age);
+	printf("%s\n", s1.id);
+	return 0;
+}
