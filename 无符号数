@@ -1,0 +1,15 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include<stdio.h>
+int i;//全局变量，未初始化默认是0
+int main()
+{
+	i--;
+	if (i > sizeof(i))//sizeof（i）是无符号数，所以应该将i也化为无符号数，所以i大
+	{
+		printf(">\n");
+	}
+	else
+	{
+		printf("<\n");
+	}
+}
