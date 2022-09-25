@@ -1,0 +1,20 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include<stdio.h>
+#include<math.h>
+int main()
+{
+	int x, y, z,num;
+	printf("请输入一个三位数：");
+	scanf("%d", &num);
+	x = num % 10;
+	z = num / 100;
+	y = (num - z * 100) / 10;
+	if (num == x*x*x + y*y*y + z*z*z)
+	{
+		printf("该数为水仙花数");
+	}
+	else
+	{
+		printf("该数不是水仙花数");
+	}
+}
