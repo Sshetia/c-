@@ -1,0 +1,31 @@
+#define CRT_SECURE_NO_WARNINGS
+#include<stdio.h>
+#include<math.h>
+int main()
+{
+	int i, k, num;
+	int a = 0;
+	int b = 0;
+	int c = 0;
+	printf("请输入k的值");
+	scanf_s("%d", &k);
+	for (i = 1; i <= k; i++)
+	{
+		printf("请输入第%d个整数", i);
+		scanf_s("%d", &num);
+		if (num >0)
+		{
+			a++;
+		}
+		else if (num == 0)
+		{
+			b++;
+		}
+		else
+		{
+			c++;
+		}
+	}
+	printf("正数的个数为%d,0的个数为%d,负数的个数为%d\n", a, b, c);
+	return 0;
+}
