@@ -1,0 +1,17 @@
+#define CRT_SECURE_NO_WARNINGS
+#include<stdio.h>
+#include<math.h>
+#include<string.h>
+int main()
+{
+	int i=0,a = 0, n = 0;
+	int ret = 0,sum=0;
+	printf("请输入数字和个数:");
+	scanf_s("%d%d", &a, &n);
+	for (i = 0; i <n; i++)
+	{
+		ret = ret* 10+a;
+		sum += ret;
+	}
+	printf("%d\n", sum);
+}
