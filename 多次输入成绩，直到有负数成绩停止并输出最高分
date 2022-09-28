@@ -1,0 +1,20 @@
+#define CRT_SECURE_NO_WARNINGS
+#include<stdio.h>
+#include<math.h>
+int main()
+{
+	int max=0,i=0,score = 0;
+	do{
+		printf("请输入第%d个学生的成绩:", i + 1);
+		scanf_s("%d", &score);
+		if (score > max)
+		{
+			max = score;
+		}
+		if (score < 0)
+		{
+			printf("输入结束");
+		}
+		i++;
+	} while (score >= 0);
+	printf("最高分为:%d\n", max);
