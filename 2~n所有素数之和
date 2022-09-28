@@ -1,0 +1,23 @@
+#define CRT_SECURE_NO_WARNINGS
+#include<stdio.h>
+#include<math.h>
+int main()
+{
+	int i, n, k, sum = 0,j;
+	printf("请输入一个正整数n:");
+	scanf("%d", &n);
+	for (j = 2; j <= n; j++)
+	{
+		k = sqrt((double)j);
+		for (i = 2; i <= k; i++)
+		{
+			if (j % i == 0)
+				break;
+		}
+		if(i>k)
+		{
+			sum += j;
+		}
+	}
+	printf("所有的素数之和为:%d", sum);
+}
