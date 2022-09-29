@@ -1,0 +1,18 @@
+#include<math.h>
+#include<string.h>
+int main()
+{
+	int total = 0;
+	int empty = 0;
+	int money = 0;
+	printf("请输入你的金额：");
+	scanf_s("%d", &money);
+	total = money;
+	empty = total;
+	while (empty >= 2)
+	{
+		total += empty / 2;
+		empty = empty / 2 + empty % 2;
+	}
+	printf("喝的汽水总数为:%d\n", total);
+}
