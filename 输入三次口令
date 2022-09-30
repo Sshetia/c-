@@ -1,0 +1,26 @@
+#define _CRT_SECURE_NO_WARNINGS	
+#include<stdio.h>
+int main()
+{
+	int i,x;
+	int count = 0;
+	printf("请输入口令:");
+	do {
+		scanf("%d", &x);
+		if (x == 123456)
+		{
+			printf("口令验证通过");
+			break;
+		}
+		count++;
+		if(x!=123456&&count<3)
+		{
+			printf("口令有误，请重新输入");
+		}
+	} while (count < 3);
+	if (count >= 3)
+	{
+		printf("该账户异常，将锁定24小时");
+	}
+
+}
