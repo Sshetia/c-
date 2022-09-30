@@ -1,0 +1,15 @@
+#define _CRT_SECURE_NO_WARNINGS	
+#include<stdio.h>
+int main()
+{
+	int i, j, x;
+	for (j = 4; j > 0; j--)
+	{
+		for (i = 1; i <= 4; i++)
+		{
+			x = (j - 1) * 4 + i;
+			printf("%4d", x);
+		}
+		printf("\n");
+	}
+}
