@@ -1,0 +1,28 @@
+#define _CRT_SECURE_NO_WARNINGS	
+#include<stdio.h>
+#include<math.h>
+int main()
+{
+	int m = 0;
+	int i = 0;
+	int j = 0;
+	int count = 0;
+	printf("请输入一个大于三的整数m:");
+	scanf("%d", &m);
+	if (m <= 3)
+	{
+		printf("输入错误，请重新输入");
+	}
+	for (i = 3; i <= m; i++)
+	{
+		for (j = 2; j <= sqrt(i); j++)
+		{
+			if ((i%j)!=0)
+			{
+				count += i * i;
+			}
+		}
+	}
+	printf("sum = %d\n", count);
+
+}
