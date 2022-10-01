@@ -23,6 +23,8 @@ int main()
 			}
 		}
 	}
-	printf("sum = %d\n", count);
-
+	if (m > 3)
+	{
+		printf("sum = %d\n", count);
+	}
 }
