@@ -1,0 +1,17 @@
+#define _CRT_SECURE_NO_WARNINGS	
+#include<stdio.h>
+#include<string>
+int main()
+{
+	char arr[] = "I am an IRONMAN";
+	int i = 0;
+	while (arr[i])
+	{
+		if (isupper(arr[i]))
+		{
+			arr[i] = tolower(arr[i]);
+		}
+		i++;
+	}
+	printf("%s\n", arr);
+}
