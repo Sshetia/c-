@@ -1,0 +1,31 @@
+#define _CRT_SECURE_NO_WARNINGS	
+#include<stdio.h>
+#include<string>
+#include<assert.h>
+int main()
+{
+	int add = 0;
+	int sub = 0;
+	int mul = 0;
+	int div = 0;
+	int mod = 0;
+	int space = 0;
+	int other = 0;
+	char c = 0;
+	int count = 0;
+	while ((c=getchar()) != '\n')
+	{
+		switch (c)
+		{
+		case '+':add++; break;
+		case '-':div++; break;
+		case '*':mul++; break;
+		case '/':div++; break;
+		case '%':mod++; break;
+		case ' ':space++; break;
+		default:other++; break;
+		}
+	}
+	printf("add=%d\n,sub=%d\n,mul=%d\n,div=%d\n,mod=%d\n,space=%d\n,other=%d\n", add, sub, mul, div, mod, space, other);
+	return 0;
+}
