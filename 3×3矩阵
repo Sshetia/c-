@@ -1,0 +1,21 @@
+#define _CRT_SECURE_NO_WARNINGS	
+#include<stdio.h>
+#include<string>
+#include<assert.h>
+int main()
+{
+	int i = 0, j = 0,sum = 0;
+	int arr[3][3] = { 0 };
+	printf("请输入一个3×3的矩阵:");
+	for (i = 0; i < 3; i++)
+	{
+		for (j = 0; j < 3; j++)
+		{
+			scanf("%d", &arr[i][j]);
+		}
+	}
+	printf("主对角线上的和为:\n");
+	for (i = 0; i < 3; i++)
+		sum += arr[i][i];
+	printf("%d\n", sum);
+}
