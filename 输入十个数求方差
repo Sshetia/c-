@@ -1,0 +1,27 @@
+#define _CRT_SECURE_NO_WARNINGS	
+#include<stdio.h>
+#include<string>
+#include<assert.h>
+int main()
+{
+	int i = 0;
+	int x = 0;
+	float ave = 0.0;
+	float sum = 0;
+	int arr[10] = { 0 };
+	printf("请输入十个数:");
+	for (i = 0; i < 10; i++)
+	{
+		scanf("%d", &arr[i]);
+	}
+	for (i = 0; i < 10; i++)
+	{
+		x += arr[i];
+	}
+	ave = x / 10;
+	for (i = 0; i < 10; i++)
+	{
+		sum += sqrt(0.1 * (arr[i] - ave)*(arr[i]-ave));
+	}
+	printf("方差为:%f", sum);
+}
