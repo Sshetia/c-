@@ -1,0 +1,32 @@
+#define _CRT_SECURE_NO_WARNINGS	
+#include<stdio.h>
+#include<string>
+#include<assert.h>
+int main()
+{
+	int arr[100] = { 0 };
+	int i = 0, n = 0, score = 0;
+	float average = 0,sum = 0;
+	while (1)
+	{
+		printf("请输入第%d个学生的成绩:", i+1);
+		scanf("%d", &score);
+		if (score < 0)
+			break;
+		sum+= score;
+		arr[i] = score;
+		i++;
+	}
+	n = i;
+	average = sum / n;
+	printf("低于平均成绩的分数为:\n");
+	for (i = 0; i < n; i++)
+	{
+		if (arr[i] < average)
+		{
+			printf("%d\t", arr[i]);
+		}
+	}
+	printf("平均分为:%.2f\n", average);
+
+}
