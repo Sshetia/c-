@@ -1,0 +1,29 @@
+#define _CRT_SECURE_NO_WARNINGS	
+#include<stdio.h>
+#include<string>
+#include<assert.h>
+int main()
+{
+	int arr[] = { 0 };
+	int sz = sizeof(arr) / sizeof(arr[0]);
+	int i = 0;
+	int count = 0;
+	int sum = 0;
+	double average = 0;
+	printf("请输入10个整数：");
+	for (i = 0; i < sz; i++)
+	{
+		scanf("%d", &arr[i]);
+	}
+	for (i = 0; i < sz; i++)
+	{
+		if (arr[i] > 0)
+		{
+			count++;
+			sum += arr[i];
+		}
+	}
+	average = sum / count;
+	printf("正数的个数为:%d\n,平均值为:%.2lf\n", count, average);
+	return 0;
+}
