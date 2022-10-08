@@ -1,0 +1,30 @@
+#define _CRT_SECURE_NO_WARNINGS	
+#include<stdio.h>
+#include<string>
+#include<assert.h>
+int main()
+{
+	int m = 0, n = 0, ret = 0,r=0;
+	printf("请输入两个整数:");
+	scanf("%d%d", &m, &n);
+	if (m >= n)
+	{
+		;
+	}
+	else
+	{
+		ret = m;
+		m = n;
+		n = ret;
+
+	}
+	r = m % n;
+	while ((m % n) != 0)
+	{
+		m = n;
+		n = r;
+		r = m % n;
+	}
+	printf("%d\n", n);
+	return 0;
+}
