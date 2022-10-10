@@ -1,0 +1,18 @@
+#define _CRT_SECURE_NO_WARNINGS	
+#include<stdio.h>
+#include<string.h>
+#include<assert.h>
+int main()
+{
+	char* p1 = "abcdefgh";
+	char* p2 = "def";
+	char *ret = strstr(p1, p2);
+	if (ret == NULL)
+	{
+		printf("没有该字符串");
+	}
+	else
+	{
+		printf("%s", ret);
+	}
+}
