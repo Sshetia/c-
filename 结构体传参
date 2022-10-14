@@ -1,0 +1,24 @@
+#define _CRT_SECURE_NO_WARNINGS	
+#include<stdio.h>
+struct s
+{
+	char c;
+	int b;
+	float m;
+};
+void init(struct s *ps)
+{
+	ps->c = 'a';
+	ps->b = 100;
+	ps->m = 3.0;
+}
+void print(const struct s* ps)
+{
+	printf("%c %d %.2f", ps->c, ps->b, ps->m);
+}
+int main()
+{
+	struct s s = { 0 };
+	init(&s);
+	print(&s);
+}
