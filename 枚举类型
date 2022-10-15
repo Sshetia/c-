@@ -1,0 +1,21 @@
+#define _CRT_SECURE_NO_WARNINGS	
+#include<stdio.h>
+enum sex
+{
+	female,
+	male,
+	secret,
+};
+enum color
+{
+	red,
+	green,
+	blue,
+};
+int main()
+{
+	enum sex s = male;
+	enum color c = blue;
+	printf("%d %d %d\n", female, male, secret);
+	printf("%d %d %d\n", red, green, blue);
+}
