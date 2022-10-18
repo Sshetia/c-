@@ -1,0 +1,27 @@
+#define CRT_SECURE_NO_WARNINGS
+#include<stdlib.h>
+#include<errno.h>
+#include<string.h>
+#include<stdio.h>
+int main()
+{
+	int* p = (int*)calloc(10,sizeof(int));//与malloc区别仅为将申请的空间初始化为0；
+	if (p == NULL)
+	{
+		printf("%s\n", strerror(errno));
+	}
+	else
+	{
+		int i = 0;
+		for (i = 0; i < 10; i++)
+		{
+			*(p + i) = i;
+		}
+		for (i = 0; i < 10; i++)
+		{
+			printf("%d ", *(p + i));
+		}
+	}
+	free(p);
+	p = NULL;//虽然p的空间已经被释放，但仍能通过p找到对应储存的内容，故应该将其地址设为空；
+	return 0;
