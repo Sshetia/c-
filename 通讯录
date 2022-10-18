@@ -1,0 +1,235 @@
+//test.c
+
+#define CRT_SECURE_NO_WARNINGS
+#include"contact.h"
+void menu()
+{
+	printf("*****************************\n");
+	printf("******1.add       2.del******\n");
+	printf("*****3.search    4.modify****\n");
+	printf("******5.show     6.sort******\n");
+	printf("*****0.exit              ****\n");
+	printf("*****************************\n");
+}
+int main()
+{
+	int input = 0;
+	struct contact con;//con就是通讯录，里面包含有1000个元素的数组和size
+	Initcontact(&con);//初始化通讯录
+	do 
+	{
+		menu();
+		printf("请选择:");
+		scanf_s("%d", &input);
+		switch (input)
+		{
+		case add:
+			addcontact(&con);
+			break;
+		case del:
+			delcontact(&con);
+			break;
+		case search:
+			searchcontact(&con);
+			break;
+		case modify:
+			modifycontact(&con);
+			break;
+		case show:
+			showcontact(&con);
+			break;
+		case sort:
+			sortcontact(&con);
+			break;
+		case exit:
+			printf("退出通讯录\n");
+			break;
+		default:
+			printf("选择错误，请重新选择:");
+		}
+	} while (input);
+	return 0;
+}
+
+//contact.h
+
+#define CRT_SECURE_NO_WARNINGS
+#define MAX 1000
+#define MAX_NAME 20
+#define MAX_SEX 5
+#define MAX_TELE 12
+#define MAX_ADDR 30
+#include<stdio.h>
+#include<string.h>
+struct peoinfo
+{
+	char name[MAX_NAME];
+	int age;
+	char sex[MAX_SEX];
+	char tele[MAX_TELE];
+	char addr[MAX_ADDR];
+};
+struct contact
+{
+	struct peoinfo data[MAX];//存放一千个元素；
+	int size;//记录已有的元素个数
+};
+enum option
+{
+	exit,
+	add,
+	del,
+	search,
+	modify,
+	show,
+	sort
+};
+//声明函数
+void Initcontact(struct contact* ps);
+void addcontact(struct contact* ps);
+void showcontact(const struct contact* ps);
+void delcontact(struct contact* ps);
+void searchcontact(struct contact* ps);
+void modifycontact(struct contact* ps);
+void sortcontact(struct contact* ps);
+
+
+//contact.c
+
+#define _CRT_SECURE_NO_WARNINGS	
+#include"contact.h"
+void Initcontact(struct contact* ps)
+{
+	memset(ps->data, 0, sizeof(ps->data));
+	ps->size = 0;//设置通讯录最初只有0个元素
+}
+void addcontact(struct contact* ps)
+{
+	if (ps->size == MAX)
+	{
+		printf("通讯录已满，无法添加\n");
+	}
+	else
+	{
+		printf("请输入姓名:>");
+		scanf("%s", ps->data[ps->size].name);
+		printf("请输入年龄:>");
+		scanf("%d",&(ps->data[ps->size].age));
+		printf("请输入性别:>");
+		scanf("%s", ps->data[ps->size].sex);
+		printf("请输入电话:>");
+		scanf("%s", ps->data[ps->size].tele);
+		printf("请输入地址:>");
+		scanf("%s", &ps->data[ps->size].addr);
+		ps->size++;
+	}
+}
+void showcontact(const struct contact* ps)
+{
+	if (ps->size == 0)
+	{
+		printf("通讯录为空\n");
+	}
+	else
+	{
+		int i = 0;
+		printf("%20s\t %4s\t %5s\t %12s\t %20s\n", "名字","年龄","性别", "电话", "住址");
+		for (i = 0; i < ps->size; i++)
+		{
+			printf("%20s\t %4d\t %5s\t %12s\t %20s\n",	
+				ps->data[i].name,
+				ps->data[i].age,
+				ps->data[i].sex,
+				ps->data[i].tele,
+				ps->data[i].addr);
+		}
+	}
+}
+static int findbyname(struct contact* ps, char name[MAX_NAME])
+{
+	int i = 0;
+	for (i = 0; i < ps->size; i++)
+	{
+		if (0 == strcmp(ps->data[i].name, name))
+		{
+			return i;
+		}
+	}
+	return -1;
+}
+
+void delcontact(struct contact* ps)
+{
+	char name[MAX_NAME];
+	printf("请输入要删除人的名字:>");
+	scanf("%s",name);
+	int pos = findbyname(ps, name);//封装函数，替换下面注释功能
+	//找到了返回名字所在元素下标，找不到返回-1
+	int i = 0;
+	//for (i = 0; i < ps->size; i++)
+	//{
+	//	if (0 == strcmp(ps->data[i].name, name))
+	//	{
+	//		break;
+	//	}
+	if (i == ps->size)
+	{
+		printf("查无此人");
+	}
+	else
+	{
+		int j = 0;
+		for (j = pos; j < ps->size - 1; j++)
+		{
+			ps->data[j] = ps->data[j + 1];
+		}
+		ps->size--;
+		printf("删除成功!\n");
+	}
+}
+void searchcontact(const struct contact* ps)
+{
+	char name[MAX_NAME];
+	printf("请输入查找人的名字:>");
+	scanf("%s", name);
+	int pos = findbyname(ps, name);
+	if (pos == -1)
+	{
+		printf("查无此人");
+	}
+	else
+	{
+		printf("%20s\t %4s\t %5s\t %12s\t %20s\n", "名字", "年龄", "性别", "电话", "住址");
+		printf("%20s\t %4d\t %5s\t %12s\t %20s\n",
+			ps->data[pos].name,
+			ps->data[pos].age,
+			ps->data[pos].sex,
+			ps->data[pos].tele,
+			ps->data[pos].addr);
+	}
+}
+void modifycontact(struct contact* ps)
+{
+	char name[MAX_NAME];
+	printf("请输入要修改人的名字:>");
+	scanf("%s", name);
+	int pos = findbyname(ps, name);
+	if (pos == -1)
+	{
+		printf("查无此人");
+	}
+	else
+	{
+		printf("请输入姓名:>");
+		scanf("%s", ps->data[pos].name);
+		printf("请输入年龄:>");
+		scanf("%d", &(ps->data[pos].age));
+		printf("请输入性别:>");
+		scanf("%s", ps->data[pos].sex);
+		printf("请输入电话:>");
+		scanf("%s", ps->data[pos].tele);
+		printf("请输入地址:>");
+		scanf("%s", &ps->data[pos].addr);
+		printf("修改完成!");
+	}
+}
