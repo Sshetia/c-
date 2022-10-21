@@ -1,0 +1,21 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include<stdlib.h>
+#include<errno.h>
+#include<string.h>
+#include<stdio.h>
+void GetMemory(char** p, int num)
+{
+	*p = (char*)malloc(num);
+}
+void test(void)
+{
+	char* str = NULL;
+	GetMemory(&str, 100);
+	strcpy(str, "hello");
+	printf(str);
+}
+int main()
+{
+	test();
+	return 0;
+}
