@@ -1,0 +1,11 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include<stdio.h>
+#define PRINT(X) printf("the value of "#X" is X\n",X);
+int main()
+{
+	int a = 0;
+	int b = 0;
+	PRINT(a);
+	PRINT(b);
+	return 0;
+}
