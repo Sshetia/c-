@@ -1,0 +1,8 @@
+#define ADD(x,y) ((x)+(y))
+int main()
+{
+	int n = 10;
+	int m = 20;
+	printf("%d\n", ADD(n,m));
+	return 0;
+}
