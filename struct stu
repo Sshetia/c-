@@ -1,0 +1,13 @@
+struct stu
+{
+	char name[20];
+	int age;
+	char sex[10];
+	char tele[20];
+};
+int main()
+{
+	struct stu s = { "ss",20,"man","121212121" };
+	printf("%d\n", s.age);
+	return 0;
+}
